@@ -1,5 +1,6 @@
 package com.example.cstichallenge.data.repositories
 
+import com.example.cstichallenge.core.utils.Constants.AUTH_KEY
 import com.example.cstichallenge.core.utils.ResourceEvent
 import com.example.cstichallenge.data.local.store.AuthPreferences
 import com.example.cstichallenge.data.remote.request.AuthRequestDto
@@ -22,6 +23,7 @@ class AuthRepositoryImpl @Inject constructor(
             //Se realiza la petición POST para el login con el body de AuthRequestDto
             val response = authApi.loginUser(loginRequest)
             //Se guarda el token en el AuthPreferences caso de que la petición sea exitosa
+            preferences.clearAuthToken()
             preferences.saveAuthToken(response.token)
             ResourceEvent.Success(Unit)
         }catch (e: IOException){
@@ -39,6 +41,7 @@ class AuthRepositoryImpl @Inject constructor(
             //Se realiza la petición POST para el registro con el body de AuthRequestDto
             val response = authApi.registerUser(registerRequest)
             //Se guarda el token en el AuthPreferences caso de que la petición sea exitosa
+            preferences.clearAuthToken()
             preferences.saveAuthToken(response.token)
             ResourceEvent.Success(Unit)
         }catch (e: IOException){
@@ -62,5 +65,15 @@ class AuthRepositoryImpl @Inject constructor(
             //En caso de que la petición no sea exitosa se retorna un ResourceEvent.Error
             ResourceEvent.Error("${e.message}")
         }
+    }
+
+    //Suspend fun para obtener el token de AuthPreferences
+    override suspend fun getAuthToken(): String? {
+        return preferences.getAuthToken()
+    }
+
+    //Suspend fun para limpiar el token de AuthPreferences
+    override suspend fun clearAuthToken() {
+        preferences.clearAuthToken()
     }
 }

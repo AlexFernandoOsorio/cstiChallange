@@ -1,6 +1,7 @@
 package com.example.cstichallenge.di
 
 import com.example.cstichallenge.domain.repositories.AuthRepository
+import com.example.cstichallenge.domain.usecases.GetAuthTokenUseCase
 import com.example.cstichallenge.domain.usecases.GetUserListUseCase
 import com.example.cstichallenge.domain.usecases.LoginAuthUseCase
 import com.example.cstichallenge.domain.usecases.RegisterAuthUseCase
@@ -28,9 +29,16 @@ object UseCaseModule {
         return RegisterAuthUseCase(repository)
     }
 
+    //Se provee el GetUserListUseCase para poder usarlo en el proyecto
     @Provides
     @Singleton
     fun providesGetUserAuthUseCase(repository: AuthRepository): GetUserListUseCase {
         return GetUserListUseCase(repository)
+    }
+    //Se provee el GetAuthTokenUseCase para poder usarlo en el proyecto
+    @Provides
+    @Singleton
+    fun providesGetAuthTokenUseCase(repository: AuthRepository): GetAuthTokenUseCase {
+        return GetAuthTokenUseCase(repository)
     }
 }

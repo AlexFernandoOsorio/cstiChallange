@@ -32,10 +32,10 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.withStyle
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import com.example.cstichallange.R
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.cstichallenge.R
 import com.example.cstichallenge.features.navigation.AppScreens
 
 
@@ -98,14 +98,11 @@ fun WelcomeScreen(
                     ),
                     isError = emailState.error != null,
                     colors = TextFieldDefaults.outlinedTextFieldColors(
-                        textColor = MaterialTheme.colorScheme.primary,
+                        focusedTextColor = MaterialTheme.colorScheme.primary,
                         containerColor = MaterialTheme.colorScheme.background,
                         focusedBorderColor = Color.Transparent,
                         unfocusedBorderColor = Color.Transparent,
                         focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-                        placeholderColor = MaterialTheme.colorScheme.tertiary.copy(
-                            alpha = 0.5f
-                        ),
                         unfocusedLeadingIconColor = MaterialTheme.colorScheme.tertiary.copy(
                             alpha = 0.5f
                         )
@@ -184,7 +181,7 @@ fun WelcomeScreen(
                         Image(
                             painter = painterResource(R.drawable.google),
                             contentDescription = null,
-                            modifier = Modifier.size(24.dp) 
+                            modifier = Modifier.size(24.dp)
                         )
                         Spacer(modifier = Modifier.width(8.dp))
                         Text(
@@ -201,7 +198,6 @@ fun WelcomeScreen(
 
                 Button(
                     onClick = {
-                        val arguments = emailState.text
                     },
                     modifier = Modifier
                         .fillMaxWidth()
@@ -230,7 +226,6 @@ fun WelcomeScreen(
                 Spacer(modifier = Modifier.height(16.dp))
                 Button(
                     onClick = {
-                        val arguments = emailState.text
                     },
                     modifier = Modifier
                         .fillMaxWidth()

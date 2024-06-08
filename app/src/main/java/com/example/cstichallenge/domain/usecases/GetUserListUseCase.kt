@@ -23,7 +23,7 @@ class GetUserListUseCase @Inject constructor(
                     for (i in 0 until userDataResponse?.size!!){
                         users.add(userDataResponse[i])
                     }
-                    totalPages = userResponse.data.totalPages ?: 0
+                    totalPages = userResponse.data.totalPages
                     currentPage++
                 }
                 is ResourceEvent.Error -> {

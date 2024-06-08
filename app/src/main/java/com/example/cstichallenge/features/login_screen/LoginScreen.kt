@@ -4,6 +4,7 @@ import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.*
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material.icons.Icons
@@ -43,10 +44,8 @@ import com.example.cstichallenge.features.common.UiState
 import kotlinx.coroutines.flow.collectLatest
 import androidx.compose.material3.*
 import androidx.hilt.navigation.compose.hiltViewModel
-import coil.compose.AsyncImage
 import coil.compose.rememberAsyncImagePainter
 import com.example.cstichallange.R
-
 import kotlinx.coroutines.launch
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
@@ -57,7 +56,6 @@ fun LoginScreen(
     userArgument: String?,
     viewModel: LoginViewModel = hiltViewModel()
 ) {
-    val emailState = viewModel.emailState.value
     val passwordState = viewModel.passwordState.value
     val loginState = viewModel.loginState.value
     var passwordVisible by rememberSaveable { mutableStateOf(false) }
@@ -66,7 +64,7 @@ fun LoginScreen(
     val scope = rememberCoroutineScope()
     // Recuperamos valores del argumento User
     val email = userArgument?.split("+|+")?.get(0)
-    val avatar = userArgument?.split("+|+")?.get(1).toString().replace("^", "/")
+    val avatar = userArgument?.split("+|+")?.get(1).toString().replace("^", "/").trim()
     val name = userArgument?.split("+|+")?.get(2).toString().replace("^", "/")
     email?.let { viewModel.setEmail(it) }
     LaunchedEffect(key1 = true) {
@@ -100,7 +98,7 @@ fun LoginScreen(
     Scaffold(
         modifier = Modifier.fillMaxSize(),
         snackbarHost = { SnackbarHost(scaffoldState) },
-        content = { paddingValues ->
+        content = { _ ->
             Box(
                 modifier = Modifier.fillMaxSize(),
             ) {
@@ -124,7 +122,7 @@ fun LoginScreen(
                         modifier = Modifier.padding(horizontal = 20.dp),
                         text = "Log in",
                         fontSize = 26.sp,
-                        color = Color.DarkGray,
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Left
                     )
@@ -148,17 +146,16 @@ fun LoginScreen(
                                 modifier = Modifier
                                     .weight(0.3f)
                                     .fillMaxHeight()
-                                    .padding(20.dp)
+                                    .padding(horizontal = 20.dp, vertical = 20.dp)
                             ) {
                                 Column {
-                                    Spacer(modifier = Modifier.height(24.dp))
+                                    Spacer(modifier = Modifier.height(8.dp))
                                     Image(
                                         painter = rememberAsyncImagePainter(avatar),
                                         contentDescription = "user",
                                         modifier = Modifier
-                                            .fillMaxWidth()
-                                            .height(80.dp),
-                                        contentScale = ContentScale.Crop,
+                                            .size(60.dp)
+                                            .clip(CircleShape)
                                     )
                                 }
                             }
@@ -170,13 +167,15 @@ fun LoginScreen(
                                 Column {
                                     Spacer(modifier = Modifier.height(24.dp))
                                     Text(
-                                        text = name ?: "",
+                                        modifier = Modifier.align(Alignment.Start),
+                                        text = name,
                                         fontSize = 14.sp,
                                         color = Color.DarkGray,
                                         fontWeight = FontWeight.Bold,
                                         textAlign = TextAlign.Left
                                     )
                                     Text(
+                                        modifier = Modifier.align(Alignment.Start),
                                         text = email ?: "",
                                         fontSize = 14.sp,
                                         color = Color.DarkGray,
@@ -215,12 +214,12 @@ fun LoginScreen(
                             },
                             maxLines = 1,
                             colors = TextFieldDefaults.outlinedTextFieldColors(
-                                textColor = MaterialTheme.colorScheme.primary,
+                                focusedTextColor = MaterialTheme.colorScheme.primary,
                                 containerColor = MaterialTheme.colorScheme.background,
                                 focusedBorderColor = Color.Transparent,
                                 unfocusedBorderColor = Color.Transparent,
                                 focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-                                placeholderColor = MaterialTheme.colorScheme.tertiary.copy(
+                                focusedPlaceholderColor = MaterialTheme.colorScheme.tertiary.copy(
                                     alpha = 0.5f
                                 ),
                                 unfocusedLeadingIconColor = MaterialTheme.colorScheme.tertiary.copy(
@@ -261,7 +260,6 @@ fun LoginScreen(
                             verticalAlignment = Alignment.CenterVertically
                         ) {
                             TextButton(onClick = {
-                                //navigator.navigate(ForgotPasswordScreenDestination)
                             }) {
                                 Text(
                                     text = "Forgot Password?",

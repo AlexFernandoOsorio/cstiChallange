@@ -12,4 +12,8 @@ interface AuthRepository {
     suspend fun registerUserApi(registerRequest: AuthRequestDto): ResourceEvent<Unit>
 
     suspend fun getUserListApi(index : Int): ResourceEvent<ListUsersResponseDto>
+
+    suspend fun getAuthToken() : String?
+
+    suspend fun clearAuthToken()
 }

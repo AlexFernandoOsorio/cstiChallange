@@ -1,7 +1,3 @@
 
-}kotlin:S1172g"@Use "_" instead of this unused lambda parameter "paddingValues".(Ÿ¹¶WJ$8e263e6f-0daa-41e3-856e-66b259de5ace
-kotlin:S6619­";Remove this useless elvis operation ?:, it always succeeds.(êÊÉŸùÿÿÿÿJ$35961fe1-0aca-46ad-8bc6-91ec15dc69f2
-\kotlin:S125ˆ"Remove this commented out code.(ãáÊJJ$3ae9b0d2-f51e-448a-baf8-404bde9768ac
-rkotlin:S1481<"/Remove this unused "emailState" local variable.(“çÙùÿÿÿÿJ$673c87fc-10c0-4c13-ba1f-7866391e7cff
-_kotlin:S1128."Remove this unused import.(·“Áã8¼³°°ÿ1J$d7b6fe0d-c52c-477e-a7d3-2c543c566800
-•kotlin:S37767"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(Ý©ÚÓøÿÿÿÿJ$1482f11e-7b24-4234-a2f2-1daedfd87a92
+nkotlin:S1874Ø"#Deprecated code should not be used.(µ£ñÏûÿÿÿÿ8Î®Êµÿ1J$06c281b9-93b4-4c30-9b65-d28f8ad2c9ba
+œkotlin:S37766"RRefactor this method to reduce its Cognitive Complexity from 29 to the 15 allowed.(Ý©ÚÓøÿÿÿÿ8Ï®Êµÿ1J$bd4cbeb5-38a0-40a1-a83e-55c3771126bb

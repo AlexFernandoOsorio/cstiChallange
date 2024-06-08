@@ -49,11 +49,13 @@ class WelcomeViewModel @Inject constructor(
                 if (user.email == email){
                     val userArgument = getUserArgument(user)
                     navController.navigate(route = AppScreens.LoginScreen.route + "/${userArgument}")
+                }else{
+                    _emailState.value = emailState.value.copy(error = "User not found")
                 }
             }
         }
     }
-
+    //Se obtiene el argumento del usuario
     private fun getUserArgument(user : UserDataModel): String {
         val email = user.email
         val avatar = user.avatar.toString().replace("/", "^")

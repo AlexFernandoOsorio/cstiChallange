@@ -46,7 +46,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.NavController
-import com.example.cstichallenge.R
+import com.example.cstichallange.R
 import com.example.cstichallenge.features.common.UiState
 import kotlinx.coroutines.flow.collectLatest
 import kotlinx.coroutines.launch
@@ -91,7 +91,7 @@ fun RegisterScreen(
     }
     Scaffold(
         snackbarHost = { SnackbarHost(scaffoldState) },
-        content = { paddingValues ->
+        content = { _ ->
             Box(
                 modifier = Modifier.fillMaxSize(),
             ) {
@@ -113,7 +113,7 @@ fun RegisterScreen(
                         modifier = Modifier.padding(horizontal = 20.dp),
                         text = "Sign up",
                         fontSize = 26.sp,
-                        color = Color.DarkGray,
+                        color = Color.White,
                         fontWeight = FontWeight.Bold,
                         textAlign = TextAlign.Left
                     )
@@ -155,14 +155,11 @@ fun RegisterScreen(
                             maxLines = 1,
                             isError = emailState.error != null,
                             colors = TextFieldDefaults.outlinedTextFieldColors(
-                                textColor = MaterialTheme.colorScheme.primary,
+                                focusedTextColor = MaterialTheme.colorScheme.primary,
                                 containerColor = MaterialTheme.colorScheme.background,
                                 focusedBorderColor = Color.Transparent,
                                 unfocusedBorderColor = Color.Transparent,
                                 focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-                                placeholderColor = MaterialTheme.colorScheme.tertiary.copy(
-                                    alpha = 0.5f
-                                ),
                                 unfocusedLeadingIconColor = MaterialTheme.colorScheme.tertiary.copy(
                                     alpha = 0.5f
                                 )
@@ -202,14 +199,11 @@ fun RegisterScreen(
                             },
                             maxLines = 1,
                             colors = TextFieldDefaults.outlinedTextFieldColors(
-                                textColor = MaterialTheme.colorScheme.primary,
+                                focusedTextColor = MaterialTheme.colorScheme.primary,
                                 containerColor = MaterialTheme.colorScheme.background,
                                 focusedBorderColor = Color.Transparent,
                                 unfocusedBorderColor = Color.Transparent,
                                 focusedLeadingIconColor = MaterialTheme.colorScheme.primary,
-                                placeholderColor = MaterialTheme.colorScheme.tertiary.copy(
-                                    alpha = 0.5f
-                                ),
                                 unfocusedLeadingIconColor = MaterialTheme.colorScheme.tertiary.copy(
                                     alpha = 0.5f
                                 )
