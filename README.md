@@ -1,10 +1,10 @@
 # CstiChallange 
 
-App de  autenticación utilizando Android mediante el uso de una API de autenticacion : https://reqres.in/
+App de  autenticación mediante el consumo de una API de autenticacion : https://reqres.in/
 
 
 ## Screenshots
-
+![](https://github.com/AlexFernandoOsorio/cstiChallange/blob/main/Screenshot%20from%202024-1.png) ![](https://github.com/AlexFernandoOsorio/cstiChallange/blob/main/Screenshot%20from%202024-2.png)
 
 ## Requisitos
 
@@ -28,12 +28,12 @@ App de  autenticación utilizando Android mediante el uso de una API de autentic
 
 ## A considerar : 
 
-- Ejemplos de emails brindados por ReqRes :
-  george.bluth@reqres.in
-  janet.weaver@reqres.in
-  emma.wong@reqres.in
-  charles.morris@reqres.in
-  tracey.ramos@reqres.in
+Ejemplos de emails brindados por ReqRes :
+  - george.bluth@reqres.in
+  - janet.weaver@reqres.in
+  - emma.wong@reqres.in
+  - charles.morris@reqres.in
+  - tracey.ramos@reqres.in
 
 
 ## Authors
